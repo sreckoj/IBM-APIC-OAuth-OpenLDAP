@@ -42,7 +42,7 @@ oc new-project openldap
 
 >**NOTE:** In the followng steps, I am using the subdomain of my OpenShift cluster which is `.apps.ocp410.tec.uk.ibm.com` Please correct commands to use your subdomain.
 
-Get URL of the OpenShift's internal registry:
+Get the URL of OpenShift's internal registry:
 ```
 oc registry info
 ```
@@ -53,6 +53,10 @@ default-route-openshift-image-registry.apps.ocp410.tec.uk.ibm.com
 ```
 If your registry is not exposed to the external world you will have to create a route to expose it. Please check the OpenShift documentation.
 
+Login to OpenShift image registry
+```
+podman login -u $(oc whoami) -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp410.tec.uk.ibm.com --tls-verify=false
+```
 
 
 
