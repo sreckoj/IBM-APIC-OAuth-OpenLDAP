@@ -170,6 +170,28 @@ Scroll down, accept default values for other properties and click **Next**:
 
 <img width="850" src="images/Snip20220921_9.png"> 
 
+The properties on the next page are crucial for the correct setup. 
+- For authentication method select: **Compose DN**
+- For bind method select: **Authenticated bind**
+
+>**NOTE:** For the rest of the properties, I am showing here the values as it were in the original LDAP onfiguration that we cloned at the beginning of this document. Correct them accordingly if you adapted the setting for your case.
+
+- Admin DN: `cn=admin,dc=ibm,dc=com` 
+- Admin password: `Passw0rd` 
+- Prefix: `uid=`
+- Suffix: `,ou=users,dc=ibm,dc=com`
+- Click on the button **Get Base DN** and then select the base DN
+- Base DN: `dc=ibm,dc=com`
+- Click on button **Test configuration** and enter the user name and password of any of the users defined in the *ldif*, for example *sarah/Passw0rd* 
+- Click on **Create** button on the bottom to confirm the configuration
+
+<img width="850" src="images/Snip20220921_19.png"> 
+
+Your LDAP will appear on the list of registries:
+
+<img width="850" src="images/Snip20220921_20.png">
+
+
 
 
 
