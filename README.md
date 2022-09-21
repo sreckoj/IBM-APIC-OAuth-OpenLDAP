@@ -20,7 +20,32 @@ openldap/bootstrap/ldif/openldap-default.ldif
 It contains a several predefined users and groups. Please correct it to fit your requirements.
 
 The base name is `dc=ibm,dc=com`. Admin user is `cn=admin,dc=ibm,dc=com` with password `Passw0rd`
-Please see the configuration and correct it accordingly.
+Please check the configuration and correct it accordingly.
+
+Navigate to the base folder and build the image. I am using `podman` in this example, but you can equally use `docker` as well. 
+
+```
+cd openldap
+
+export NAME=osixia/extend-osixia-openldap
+export VERSION=0.1.0
+
+podman login docker.io
+
+podman build -t $NAME:$VERSION --rm .
+```  
+
+Login to your OpenShift cluster and create project called "openldap":
+```
+oc new-project openldap
+```  
+
+>**NOTE:** In the followng steps, I am using the subdomain of my OpenShift cluster which is `.apps.ocp410.tec.uk.ibm.com` please correct commands to use your subdomain.
+
+
+
+
+
 
 
 
