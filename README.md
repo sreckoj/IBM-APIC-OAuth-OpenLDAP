@@ -119,7 +119,13 @@ spec:
 
 ```
 
+Wait until the openldap pod is up and running:
+```
+oc get pods -n openldap
 
+NAME                       READY   STATUS    
+openldap-5fc44f956-7xfb8   1/1     Running  
+```
 
 
 
