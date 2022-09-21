@@ -1,11 +1,10 @@
 
 # Configure IBM API Connect native OAuth provider with OpenLDAP as authentication registry
 
-**Note**: The subdomain of the OpenShift cluster used in this example is:
-```
-.apps.ocp410.tec.uk.ibm.com
-```
-Please correct it to fit your environment.
+
+>**NOTE:** This document is written in hurry and it is in a very draft state. I apologize for all typos and inconsistencies. Hopefully, it will be improved later.
+
+
 
 ## Setup OpenLDAP on OpenShift cluster
 
@@ -14,38 +13,16 @@ Clone the following repository with the sample configuration:
 git clone https://github.com/jdiggity22/openldap.git
 ```
 
-It includes a sample ldif file:
+You will find a sample *ldif* file in the following location:
 ```
 openldap/bootstrap/ldif/openldap-default.ldif
 ```
-with the predefined users and groups:
-```
-├─ developers
-│  ├─ todd
-│  ├─ james
-│  ├─ sarah
-│  ├─ jane
-│  └─ mike    
-│   
-├─ operations
-│  ├─ bob
-│  ├─ laura
-│  ├─ josie
-│  ├─ tom
-│  └─ paula
-│  
-├─ support
-│  ├─ carlos
-│  ├─ jackie
-│  └─ tony
-│
-└─ security
-    ├─ janet
-    ├─ frank
-    └─ ted
-```
+It contains a several predefined users and groups. Please correct it to fit your requirements.
 
-.... **TODO:** complete this
+The base name is `dc=ibm,dc=com`. Admin user is `cn=admin,dc=ibm,dc=com` with password `Passw0rd`
+Please see the configuration and correct it accordingly.
+
+
 
 
 ## Setup LDAP user registry in API Connect
