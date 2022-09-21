@@ -166,7 +166,9 @@ Give it some name and enter the address (without protocol specification) and por
 
 <img width="850" src="images/Snip20220921_8.png">
 
+Scroll down, accept default values for other properties and click **Next**:
 
+<img width="850" src="images/Snip20220921_9.png"> 
 
 
 
