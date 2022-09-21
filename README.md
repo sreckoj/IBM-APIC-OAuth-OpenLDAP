@@ -119,12 +119,33 @@ spec:
 
 ```
 
-Wait until the openldap pod is up and running:
+Wait until the *openldap* pod is up and running:
 ```
 oc get pods -n openldap
 
 NAME                       READY   STATUS    
 openldap-5fc44f956-7xfb8   1/1     Running  
+```
+
+Check services in the *openldap* project:
+```
+oc get services -n openldap
+```
+
+The response should be similar to this:
+```
+NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+ldap-service   ClusterIP   172.30.20.102   <none>        389/TCP   72m    
+```
+
+That means that your LDAP is available at (the IP addrress will be different in your case):
+```
+ldap://172.30.20.102:389
+``` 
+
+Or, event better, using the internal DNS:
+```
+ldap://ldap-service.openldap.svc.cluster.local:389
 ```
 
 
