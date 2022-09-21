@@ -149,7 +149,6 @@ ldap://ldap-service.openldap.svc.cluster.local:389
 ```
 
 
-
 ## Setup LDAP user registry in API Connect
 
 
