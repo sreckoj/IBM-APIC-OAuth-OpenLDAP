@@ -191,9 +191,27 @@ Your LDAP will appear on the list of registries:
 
 <img width="850" src="images/Snip20220921_20.png">
 
+## Create OAuth provider
 
+In the API Manager, navigate to **Resources > OAuth providers**, click on **Add** and select **Native OAuth provider**
 
+<img width="850" src="images/Snip20220921_21.png">
 
+Follow the standard steps for name, grant type, scope etc...
+
+<img width="850" src="images/Snip20220921_23.png">
+
+<img width="850" src="images/Snip20220921_24.png">
+
+<img width="850" src="images/Snip20220921_25.png">
+
+Select our **OpenLDAP** user registry for the authentication
+
+<img width="850" src="images/Snip20220921_27.png">
+
+Continue with the standard steps to conclude the provider creation:
+
+<img width="850" src="images/Snip20220921_28.png">
 
 
 
