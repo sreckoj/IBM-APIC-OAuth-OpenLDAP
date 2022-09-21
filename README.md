@@ -58,10 +58,66 @@ Login to OpenShift image registry
 podman login -u $(oc whoami) -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp410.tec.uk.ibm.com --tls-verify=false
 ```
 
+List local images. The image that you have built before must appear on the list.
+```
+podman images | grep openldap
+```
 
+Tag this image to be able to push it to the OpenShift registry:
+```
+podman tag osixia/extend-osixia-openldap:0.1.0 default-route-openshift-image-registry.apps.ocp410.tec.uk.ibm.com/openldap/openldap:1.0.0
+```
 
+Push it:
+```
+podman push default-route-openshift-image-registry.apps.ocp410.tec.uk.ibm.com/openldap/openldap:1.0.0 --tls-verify=false
+```
 
+Apply the security setting to your OpenShift project
+```
+oc adm policy add-scc-to-group anyuid system:serviceaccounts:openldap
+```
 
+Create deployment and servce in your **openldap** project
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: openldap
+ labels:
+   app: openldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openldap
+  template:
+   metadata:
+     labels:
+       app: openldap
+   spec:
+     containers:
+       - image: image-registry.openshift-image-registry.svc:5000/openldap/openldap:1.0.0
+         imagePullPolicy: Always
+         name: openldap
+         ports:
+           - containerPort: 389
+             protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+ labels:
+   app: openldap
+ name: ldap-service
+spec:
+ ports:
+   - name: openldap
+     port: 389
+ selector:
+   app: openldap
+
+```
 
 
 
