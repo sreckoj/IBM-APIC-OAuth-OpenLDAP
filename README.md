@@ -160,9 +160,11 @@ Select **LDAP user registry**
 
 <img width="850" src="images/Snip20220921_2.png">
 
-<img width="850" src="images/Snip20220921_8.png">
+Give it some name and enter the address (without protocol specification) and port:
+- Address: `ldap-service.openldap.svc.cluster.local`
+- Port: `389`
 
-<img width="850" src="images/Snip20220921_9.png">
+<img width="850" src="images/Snip20220921_8.png">
 
 
 
